@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Variables</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Viscosity Predictor</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/prime"
+              >Main features <span class="sr-only"></span
+            ></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Old Values</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="title">VISCOSITY PREDICTOR (PRIME)</div>
+      <div class="content">
+        <form method="POST" , action="{{url_for('predict')}}">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">HIC-1340-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="11720.28711"
+                step="0.10000"
+                min="1"
+                max="100000"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_HIC-1340-PV"
+                class="text"
+                step="0.1"
+                name= "a"
+                value="11720.28711"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">HIC-1340-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="11500"
+                step="1"
+                min="1"
+                max="100000"
+                onchange="updateTextInput_1(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_HIC-1340-SETPOINT"
+                class="text"
+                value="11500"
+                name="b"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">HIC-1340-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                value="11500"
+                step="1"
+                max="15000"
+                onchange="updateTextInput_2(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_HIC-1340-OUTPUT"
+                class="text"
+                name="c"
+                value="11500"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-1112-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="100"
+                value="154.7841339"
+                step=".100"
+                max="1500"
+                onchange="updateTextInput_3(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TI-1112-PV"
+                class="text"
+                name="d"
+                value="154.7841339"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-114-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="205.2409821"
+                min="100"
+                step="1.100"
+                max="15000"
+                onchange="updateTextInput_4(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-114-PV"
+                class="text"
+                value="205.2409821"
+                name="e"
+                step="1.100"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-119-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1.5"
+                value="209.7121582"
+                step="1.7121582"
+                max="1000"
+                onchange="updateTextInput_5(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-119-PV"
+                class="text"
+                name="f"
+                value="0.47223392"
+                step="1.7121582"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-119-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="0.5"
+                step="1"
+                value="210"
+                max="1000"
+                onchange="updateTextInput_6(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-119-SETPOINT"
+                class="text"
+                value="210"
+                name="g"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-119-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="49.50041962"
+                min="1"
+                step="0.50041962"
+                max="1000"
+                onchange="updateTextInput_7(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-119-OUTPUT"
+                class="text"
+                name="h"
+                value="49.50041962"
+                step="0.50041962"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-306-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="217.3028412"
+                step="1.3028412"
+                min="1"
+                max="1000"
+                onchange="updateTextInput_8(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TI-306-PV"
+                class="text"
+                name="i"
+                value="217.3028412"
+                step="1.3028412"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-313-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1.03874969"
+                value="79.03874969"
+                min="1.03874969"
+                max="1000"
+                onchange="updateTextInput_9(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TI-313-PV"
+                class="text"
+                name="j"
+                value="79.03874969"
+                step="1.03874969"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-315-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                value="217.3059692"
+                step="0.3059692"
+                max="100"
+                onchange="updateTextInput_10(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TI-315-PV"
+                class="text"
+                name="k"
+                value="217.3059692"
+                step="0.3059692"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-305-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                max="100"
+                value="201.6518097"
+                onchange="updateTextInput_11(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-305-PV"
+                class="text"
+                name="l"
+                value="201.6518097"
+                step="0.6518097"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-305-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                value="204"
+                min="1"
+                max="1000"
+                onchange="updateTextInput_12(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-305-SETPOINT"
+                class="text"
+                value="204"
+                name="m"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-314-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                value="209.0874023"
+                max="100"
+                step="0.0874023"
+                onchange="updateTextInput_13(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-314-PV"
+                name="n"
+                class="text"
+                value="209.0874023"
+                step="0.0874023"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-314-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                value="209"
+                min="1"
+                max="1000"
+                onchange="updateTextInput_14(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-314-SETPOINT"
+                class="text"
+                name="o"
+                value="209"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">LIC-404-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step=".6401825"
+                value="86.6401825"
+                min="1"
+                max="1000"
+                onchange="updateTextInput_15(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_LIC-404-PV"
+                class="text"
+                value="86.6401825"
+                name="p"
+                step=".6401825"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">LIC-404-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                min="1"
+                max="100"
+                onchange="updateTextInput_16(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_LIC-404-SETPOINT"
+                class="text"
+                value="90"
+                name="q"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">LIC-404-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                min="1"
+                max="1000"
+                onchange="updateTextInput_17(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_LIC-404-OUTPUT"
+                class="text"
+                name="r"
+                value="35"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-600-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="-62.377"
+                max="214.065"
+                onchange="updateTextInput_18(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-600-PV"
+                class="text"
+                value="220.0564423"
+                name="s"
+                step="0.0564423"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-600-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                min="1"
+                max="500"
+                onchange="updateTextInput_19(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-600-SETPOINT"
+                class="text"
+                name="t"
+                value="220"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-600-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="58.188"
+                max="217.487"
+                onchange="updateTextInput_20(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-600-OUTPUT"
+                class="text"
+                value="58.47953415"
+                name="u"
+                step="0.47953415"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-606-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step=".9705505"
+                min="185.9705505"
+                max="216.9705505"
+                onchange="updateTextInput_21(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-606-PV"
+                class="text"
+                name="v"
+                value="219.9705505"
+                step=".9705505"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-606-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                min="0"
+                max="100"
+                onchange="updateTextInput_22(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-606-SETPOINT"
+                class="text"
+                name="w"
+                value="220"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-606-OUTPUT</span>
+              <input
+                type="range"
+                step="0.1"
+                name="rangeInput"
+                min="-0.027"
+                max="113.486"
+                onchange="updateTextInput_23(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_TIC-606-OUTPUT"
+                class="text"
+                value="56.68051147"
+                name="x"
+                step="0.68051147"
+              />
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="PREDICT" />
+          </div>
+        </form>
+        {% if data == 4 %}
+        <h1 class="text1">
+          Predicted Value: Class 4
+        </h1>
+        {% elif data == 3 %}
+        <h1 class="text1">
+          Predicted Value: Class 3
+        </h1>
+        {% elif data == 2 %}
+        <h1 class="text1">
+          Predicted Value: Class 2
+        </h1>
+        {% elif data == 1 %}
+        <h1 class="text1">
+          Predicted Value: Class 1
+        </h1>
+        {% endif %}
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./static/js/main.js"></script>
+  </body>
+</html>

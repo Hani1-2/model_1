@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  <script src="./static/js/main.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Viscosity Predictor</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/prime"
+              >Main features <span class="sr-only"></span
+            ></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Old Values</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="title">VISCOSITY PREDICTOR</div>
+      <div class="content">
+        <form action="#">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">FI-1117-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value=" 0.07493599"
+                step="0.1"
+                min="1"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_FI-1117"
+                class="text"
+                step="0.1"
+                value=" 0.07493599"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FI-1121-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="0.21524124"
+                step="0.100"
+                min="1"
+                max="100"
+                onchange="updateTextInput_1(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput_FI-1121"
+                class="text"
+                value="0.21524124"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">HIC-1340-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                value="0.50818764"
+                step="0.10000"
+                max="15000"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.50818764"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">HIC-1340-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="100"
+                value=" 0.57946439"
+                step="100"
+                max="15000"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=" 0.57946439"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">HIC-1340-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="0.57944386"
+                min="100"
+                step="100"
+                max="15000"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.57944386"
+                step="100"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">HIC-105-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="0.5"
+                value="0.47223392"
+                step="0.10000"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.47223392"
+                step="0.10000"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">HIC-105-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="0.5"
+                step="0.10000"
+                value="0.4423619"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.4423619"
+                step="0.100000"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PDI-1129-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value=" 0.30928265"
+                min="1"
+                step="0.1"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=" 0.30928265"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PI-1113-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                value="0.67855816"
+                step="0.1"
+                min="1"
+                max="1000"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.67855816"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PI-1431-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                value="0.55572643"
+                min="1"
+                max="1000"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.55572643"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PIC-130-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                value="0.61511788"
+                step="0.1"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.61511788"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PIC-130-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                max="100"
+                value=" 0.73602492"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_1"
+                class="text"
+                value=" 0.73602492"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PIC-130-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                value="0.76526003"
+                min="1"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_2"
+                class="text"
+                value="0.76526003"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PIC-1432-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="1"
+                value="0.91316779"
+                max="100"
+                step="0.1"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.91316779"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PIC-1432-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                value="0.20735597"
+                min="-0.520"
+                max="104.599"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="0.20735597"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PIC-1432-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                value="-1.01637292"
+                min="1"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="-1.01637292"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-1112-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="-62.365"
+                max="215.089"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="153.4026031"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-1132-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.001"
+                min="-24.968"
+                max="-24.947"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="-24.9605751"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-114-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="-62.377"
+                max="214.065"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="205.0815887"
+                step="0.01"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-114-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                min="1"
+                max="500"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_3"
+                class="text"
+                value="180"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-119-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="58.188"
+                max="217.487"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="211.2169647"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-119-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1"
+                min="185"
+                max="216"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="212"
+                step="1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-119-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="48.546875"
+                step="0.100"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">WI-105-PV</span>
+              <input
+                type="range"
+                step="0.1"
+                name="rangeInput"
+                min="-0.027"
+                max="13.486"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="11.6834774"
+                step="0.1000"
+                <div
+                class="input-box"
+              />
+              <span class="details">WI-106-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="-0.027"
+                max="13.681"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="11.68044662"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FI-307-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="500"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="91.31859589"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FI-316-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="200"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="75.06342316"
+                step="0.01"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-304-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                min="92.296"
+                max="200.004"
+                step="0.001"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="180.9128418"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-306-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="90.592"
+                max="258.577"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="218.3769836"
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-313-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.01"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value="75.06342316"
+                step="0.01"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-315-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="77.338"
+                max="258.589"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-305-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="96.662"
+                max="218.351"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-305-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="150"
+                max="207"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-314-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="92.180"
+                max="215.745"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-314-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="150"
+                max="210"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FIC-426-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FIC-426-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FIC-426-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_4"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">LIC-404-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">LIC-404-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">LIC-404-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-405-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="71.370"
+                max="213.263"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-406-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="66.933"
+                max="214.257"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-407-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="65.348"
+                max="215.976"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-408-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="65.267"
+                max="217.074"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-409-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="59.091"
+                max="217.959"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-410-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="56.087"
+                max="210.887"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-411-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-412-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.001"
+                min="274.206"
+                max="274.265"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-413-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="51.163"
+                max="207.168"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-416-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="81.209"
+                max="228.733"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-422-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="35.515"
+                max="212.445"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-422-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="160"
+                max="200"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-422-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FIC-512-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FIC-512-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_5"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FIC-512-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_6"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PDI-501-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PI-507-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-500-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="-49.865"
+                max="238.128"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-510-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="49.060"
+                max="199.479"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-511-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="27.021"
+                max="175.303"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-511-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="49.023"
+                max="198.755"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-511-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AI-214-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AI-232-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AI-246-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AIC-208-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AIC-208-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AIC-214-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AIC-214-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">AIC-214-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_7"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FI-207-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">FI-239-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PDI-201-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">PDI-231-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TAH-205-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="55.160"
+                max="356.273"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-202-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="-99.809"
+                max="365.601"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-203-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="361.140"
+                max="389.621"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-229-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="28.466"
+                max="232.689"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-230-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="29.149"
+                max="234.533"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TI-241-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="1.001"
+                min="26.947"
+                max="337.460"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-204-PV1</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="54.473"
+                max="351.855"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-204-SETPOINT1</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-204-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0"
+                max="80"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-204-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="27.363"
+                max="259.611"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-204-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="dont_use_8"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-600-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="76.772"
+                max="227.172"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-600-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0.5"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-600-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-606-PV</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="73.684"
+                max="230.131"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-606-SETPOINT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="190"
+                max="224"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">TIC-606-OUTPUT</span>
+              <input
+                type="range"
+                name="rangeInput"
+                step="0.1"
+                min="0"
+                max="100"
+                onchange="updateTextInput(this.value);"
+              />
+              <input
+                type="number"
+                id="textInput"
+                class="text"
+                value=""
+                step="0.1"
+              />
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="PREDICT" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
